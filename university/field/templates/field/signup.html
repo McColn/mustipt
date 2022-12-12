@@ -1,0 +1,57 @@
+
+{% extends 'field/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        body{
+            background-color: rgb(219, 219, 223);
+        }
+        .row{
+            background-color: rgb(171, 173, 253);
+         }
+         #horizontal-line{
+            width: 90%px;
+            border: 2px solid green;
+        }
+        .col-md-1{
+            color: white;
+            font-size: 20px;
+        }
+        .col-md-1 a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+
+       <h3>Registration Form</h3>
+       <div id="horizontal-line"></div><br>
+
+       
+
+      <center>
+       <form class="form-inline" method="POST">
+        {% csrf_token %}
+            <label for="firstname">Firstname:</label><br>
+          <input type="text" class="form-control" name="firstname"><br><br>
+
+          <label for="lastname">lastname:</label><br>
+          <input type="text" class="form-control" name="lastname"><br><br>
+
+          <label for="username">email:</label><br>
+          <input type="email" class="form-control" name="email"><br><br>
+
+          <label for="username">Username:</label><br>
+          <input type="text" class="form-control" name="username"><br><br>
+
+          <label for="password">password:</label><br>
+          <input type="password" class="form-control" name="password1"><br><br>
+
+          <label for="password">conferm password:</label><br>
+          <input type="password" class="form-control" name="password2"><br><br>
+
+          <button class="btn btn-info" style="background-color: green;" name="tuma">Register</button>
+        </div>
+       </center>
+     
+{% endblock %}

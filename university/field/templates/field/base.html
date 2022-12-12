@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="{% static 'field/bootstrap.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+     <div class="header">
+        <div class="row" style="background-color: green;">
+        <div class="col-md-1"><a href="{% url 'home' %}"> MUST</a></div>
+        <div class="col-md-1"><a href="#"> {{user.username}}</a></div>
+        
+        {% if user.is_staff %}
+        <div class="col-md-1"><a href="/admin">Admin </a></div>
+        {% endif %}
+        {% if user.is_superuser %}
+        <div class="col-md-1"><a href="{% url 'applied' %}">applied List </a></div>
+        
+        {% endif %}
+        <div class="col-md-1"><a href="#"> </a></div>
+        <div class="col-md-1"><a href="#"> </a></div>
+        
+        
+        <div class="col-md-1"><a href="{% url 'selected' %}"> Selected for IPT</a></div>
+        <div class="col-md-1"><a href="{% url 'team' %}"> our team </a></div>
+        {% if user.is_authenticated %}
+        <div class="col-md-1"><a href="{% url 'apply' %}"> Apply </a></div>
+        <div class="col-md-1"><a href="{% url 'signout'%}">Signout </a></div>
+        {% else %}
+        <div class="col-md-1"><a href="{% url 'signin' %}"> Signin </a></div>
+        <div class="col-md-1"><a href="{% url 'signup' %}">Signup</a></div>
+        {% endif %}
+        </div>
+    </div>
+    
+    <center>
+     <h1 style="color: green;">MBEYA UNIVERSITY OF SCIENCE AND TECHNOLOGY</h1>
+     <h2 style="color: green;">COLLEGE OF INFORMATION & COMMUNICATION TECHNOLOGY</h2>
+    </center>
+    {% block content %}
+
+    {% endblock %}
+
+
+    
+    </div>
+
+</body>
+
+</html>

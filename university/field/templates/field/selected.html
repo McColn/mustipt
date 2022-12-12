@@ -1,0 +1,66 @@
+{% extends 'field/base.html' %}
+{% block content %}
+    <style>
+        body{
+            background-color: rgb(219, 219, 223);
+        }
+        .row{
+            background-color: rgb(171, 173, 253);
+         }
+        .col-md-1{
+            color: white;
+            font-size: 20px;
+        }
+        .col-md-1 a{
+            text-decoration: none;
+            color: white;
+        }
+        #horizontal-line{
+            width: 90%px;
+            border: 2px solid green;
+        }
+    </style>
+
+    <h3>LIST OF STUDENTS SUCCEED TO GET IPT 2021/2022</h3>
+    <div id="horizontal-line"></div><br>
+    {% if x %}
+
+    <table class="table">
+        <tr class="warning">
+            <th>id</th>
+            <th>firstname</th>
+            <th>middlename</th>
+            <th>lastname</th>
+            <th>reg no</th>
+            <th>department</th>
+            <th>level</th>
+            <th>course</th>
+            <th>year</th>
+            <th>place</th>
+            
+        </tr>
+        {% for i in x %}
+        {% if i.approved %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.firstname}}</td>
+            <td>{{i.middlename}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.regno}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.level}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.year}}</td>
+            <td>{{i.allocation}}</td>
+            
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% else %}
+       <h3>No student get an IPT opportunity yet,, soon will be published</h3>
+    {% endif %}
+        </center>
+   
+
+{% endblock %}

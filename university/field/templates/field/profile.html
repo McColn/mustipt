@@ -1,0 +1,64 @@
+{% extends 'field/base.html' %}
+{% block content %}
+    <style>
+        body{
+            background-color: rgb(219, 219, 223);
+        }
+        .row{
+            background-color: rgb(171, 173, 253);
+         }
+        .col-md-1{
+            color: white;
+            font-size: 20px;
+        }
+        
+        .col-md-1 a{
+            text-decoration: none;
+            color: white;
+        }
+        .col-md-4{
+            color: white;
+            font-size: 20px;
+        }
+        #left{
+            width: 50%;
+            float: left;
+            padding-left: 80px;
+        }
+        #right{
+            width: 50%;
+            float: left;
+            padding-left: 80px;
+        }
+        #horizontal-line{
+            width: 90%px;
+            border: 2px solid red;
+        }
+        #end{
+            float: center;
+            text-align: center;
+        }
+        
+    </style>
+
+     <center>
+    <h3>APPLY YOUR FIELD</h3>
+    <div id="horizontal-line"></div><br>
+    {{ user.profile.bio }}
+    </center>
+    <form class="form-inline" method="POST">
+      {% csrf_token %}
+
+      {{form}}
+       
+        
+        <br><br><center><button type="submit" class="btn btn-warning" style="width: 30%;">Submit</button></center>
+      </form>
+    <br><br><br>
+            <!-- <div id="end">
+                <br><br><br>
+                <img src="fb.png" alt="" height="30px" width="40px">
+                <img src="insta.png" alt="" height="40px" width="40px">
+                <img src="twitter.png" alt="" height="30px" width="30px">
+            </div> -->
+{% endblock %}

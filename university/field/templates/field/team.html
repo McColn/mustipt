@@ -1,0 +1,87 @@
+{% extends 'field/base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        body{
+            background-color: rgb(219, 219, 223);
+        }
+        .row{
+            background-color: rgb(171, 173, 253);
+         }
+        .col-md-1{
+            color: white;
+            font-size: 20px;
+        }
+        .col-md-1 a{
+            text-decoration: none;
+            color: white;
+        }
+        
+        #moja{
+            width: 30%;
+            height: auto;
+            float: left;
+            border: 2px solid green;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            margin: 1%;
+        }
+        #mbili{
+            width: 30%;
+            height: auto;
+            float: left;
+            border: 2px solid green;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            margin: 1%;
+        }
+        #tatu{
+            width: 30%;
+            height: auto;
+            float: left;
+            border: 2px solid green;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            margin: 1%;
+        }
+        #horizontal-line{
+            width: 90%px;
+            border: 2px solid green;
+        }
+        
+    </style>
+    <h3>OUR TEAM</h3>
+    <div id="horizontal-line"></div><br>
+            
+        <div id="moja">
+            <h3 style="color: black; text-align: center;">Cornel Mtavangu</h3>
+            <p style="margin: 5%;">Seniour computer engineer, with masters degree in computer engineering
+                 from university of dar es salaam(2002), currently teaching electronics
+                  subjects for bachelor degree students</p>
+                  <center>
+                  <img src="{% static 'field/coln.jpg' %}" class="img-circle"  height="100px" width="100px" style="max-width: 100%; height: auto;">
+                  </center>
+        </div>
+        <div id="mbili">
+            <h3 style="color: black; text-align: center;">Cornel Mtavangu</h3>
+            <p style="margin: 5%;">Seniour computer engineer, with masters degree in computer engineering
+                 from university of dar es salaam(2002), currently teaching electronics
+                  subjects for bachelor degree students</p>
+                  <center>
+                  <img src="{% static 'field/coln.jpg' %}" class="img-circle"  height="100px" width="100px" style="max-width: 100%; height: auto;">
+                  </center>
+        </div>
+        <div id="tatu">
+            <h3 style="color: black; text-align: center;">Cornel Mtavangu</h3>
+            <p style="margin: 5%;">Seniour computer engineer, with masters degree in computer engineering
+                 from university of dar es salaam(2002), currently teaching electronics
+                  subjects for bachelor degree students</p>
+                  <center>
+                  <img src="{% static 'field/coln.jpg' %}" class="img-circle"  height="100px" width="100px" style="max-width: 100%; height: auto;">
+                  </center>
+        </div>
+    </center>
+    {% endblock %}

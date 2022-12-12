@@ -1,0 +1,80 @@
+{% extends 'field/base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        body{
+            background-color: rgb(219, 219, 223);
+        }
+        .row{
+            background-color: rgb(171, 173, 253);
+         }
+        .col-md-1{
+            color: white;
+            font-size: 20px;
+        }
+        .col-md-1 a{
+            text-decoration: none;
+            color: white;
+        }
+        #horizontal-line{
+            width: 90%px;
+            border: 2px solid green;
+        }
+
+        #kwanza{
+            width: 40%;
+            float: left;
+        }
+        
+        #pili{
+            width: 60%;
+            float: left;
+        }
+        
+        #end{
+            float: center;
+            text-align: center;
+        }
+        
+    </style>
+    <center>
+    <h3>"Endeavoring to lead in science and technology"</h3>
+    <div id="horizontal-line"></div><br>
+    </center>
+    <div class="pamoja">
+    <div id="kwanza">
+        <p>
+            <h5>Mbeya University of Science And Technology is among of leading university in 
+                Tanzania currently
+            </h5>
+            <h5>
+                Apply now for better education
+            </h5>
+            <button class="btn btn-warning" style="background-color: green;"><a href="application.php" style="color: white; text-decoration: none;">Apply here</a></button>
+        </p>
+    </div>
+    <div id="vertical-line">
+
+    </div>
+    <div id="pili">
+        <form class="form-inline" method="POST">
+            {% csrf_token %}
+            <h3>Login Page</h3><hr>
+
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" name="username"><br><br>
+    
+              <label for="password">password:</label>
+              <input type="password" class="form-control" name="password1"><br><br>
+              <p>New user,<a href="{% url 'signup' %}"> please register</a></p>
+              <br><button type="submit" name="ingia" class="btn btn-warning" style="width: 30%; background-color: green;">Submit</button>
+            
+      </form>
+    </div>
+</div>
+   
+     
+    </div>
+
+
+{% endblock %}    

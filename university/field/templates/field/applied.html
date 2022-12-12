@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+    <link rel="stylesheet" href="{% static 'field/bootstrap.css' %}">
+    <style>
+        body{
+            background-color: rgb(219, 219, 223);
+        }
+        .row{
+            background-color: rgb(171, 173, 253);
+         }
+        .col-md-1{
+            color: white;
+            font-size: 20px;
+        }
+        .col-md-1 a{
+            text-decoration: none;
+            color: white;
+        }
+        #horizontal-line{
+            width: 90%px;
+            border: 2px solid green;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header">
+        <div class="row" style="background-color: green;">
+        <div class="col-md-1"><a href="{% url 'home' %}"> MUST</a></div>
+        <div class="col-md-1"><a href="#"> {{user.username}}</a></div>
+        
+        {% if user.is_staff %}
+        <div class="col-md-1"><a href="/admin">Admin </a></div>
+        {% endif %}
+        {% if user.is_superuser %}
+        <div class="col-md-1"><a href="{% url 'applied' %}">applied List </a></div>
+        
+        {% endif %}
+        <div class="col-md-1"><a href="#"> </a></div>
+        <div class="col-md-1"><a href="#"> </a></div>
+        
+        
+        <div class="col-md-1"><a href="{% url 'selected' %}"> Selected for IPT</a></div>
+        <div class="col-md-1"><a href="{% url 'team' %}"> our team </a></div>
+        {% if user.is_authenticated %}
+        <div class="col-md-1"><a href="{% url 'apply' %}"> Apply </a></div>
+        <div class="col-md-1"><a href="{% url 'signout'%}">Signout </a></div>
+        {% else %}
+        <div class="col-md-1"><a href="{% url 'signin' %}"> Signin </a></div>
+        <div class="col-md-1"><a href="{% url 'signup' %}">Signup</a></div>
+        {% endif %}
+        </div>
+        <center>
+            <h1 style="color: gren;">MBEYA UNIVERSITY OF SCIENCE AND TECHNOLOGY</h1>
+     <h2 style="color: green;">COLLEGE OF INFORMATION & COMMUNICATION TECHNOLOGY</h2>
+    <h3>LIST OF STUDENTS APPLIED IPT</h3>
+    <div id="horizontal-line"></div><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+    {% if x %}
+    <table class="table">
+        <tr class="warning">
+            <th>id</th>
+            <th>firstname</th>
+            <th>middlename</th>
+            <th>lastname</th>
+            <th>reg no</th>
+            <th>department</th>
+            <th>level</th>
+            <th>course</th>
+            <th>year</th>
+            <th>place</th>
+            <th>status</th>
+        </tr>
+
+        {% for i in x %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.firstname}}</td>
+            <td>{{i.middlename}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.regno}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.level}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.year}}</td>
+            <td>{{i.allocation}}</td>
+            <td>
+                {% if i.approved %}
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" checked="checked" value={{i.id}} name="boxes">
+                </div>
+                {% else %}
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input"
+                    value={{i.id}} name="boxes">
+                </div>
+                {% endif %}
+
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    <button class="btn btn-secondary" type="submit">Approve status</button>
+    </form>
+    
+    {% else%}
+    <h4>No applied up to now</h4>
+    {% endif %}
+        </center>
+    
+    </div>
+    
+</body>
+</html>
